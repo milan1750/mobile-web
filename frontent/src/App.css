@@ -1,0 +1,10 @@
+.kms-navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-form {
+  margin: 0px auto;
+  width: 600px;
+}
