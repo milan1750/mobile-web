@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 
-// This following section will display the form that takes the input from the user.
 export default function Login() {
   const navigate = useNavigate();
 
@@ -9,16 +8,16 @@ export default function Login() {
     name: "",
     password: "",
   });
+
   function updateForm(value) {
     return setForm((prev) => {
       return { ...prev, ...value };
     });
   }
 
-  // This function will handle the submission.
+  // Form Submission
   async function onSubmit(e) {
     e.preventDefault();
-    // When a post request is sent to the create url, we'll add a new record to the database.
     const validateUser = { ...form };
     let message = await fetch("http://localhost:5001/user/validate", {
       method: "POST",

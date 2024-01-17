@@ -15,7 +15,7 @@ export default function Navbar() {
         <ul className="pull-right navbar-nav">
           <li>
             {location.pathname === "/users" ? (
-              <NavLink className="btn btn-success" to="/register">
+              <NavLink className="btn btn-success" to="/users/register">
                 User Registration
               </NavLink>
             ) : (

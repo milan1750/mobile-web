@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-import Navbar from "./navbar";
+import Navbar from "../navbar";
 
 // This following section will display the form that takes the input from the user.
-export default function Register() {
+export default function RegisterUser() {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -34,7 +34,7 @@ export default function Register() {
       return;
     });
     setForm({ name: "", password: "", fullName: "", email: "" });
-    navigate("/login");
+    navigate("/users");
   }
 
   return (

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Navbar from "../navbar";
 const Record = (props) => (
   <tr>
@@ -26,7 +26,7 @@ const Record = (props) => (
       <button
         className="btn btn-link"
         onClick={() => {
-          props.deleteRecord(props.user._id);
+          props.deleteUser(props.user._id);
         }}
       >
         Delete
@@ -53,7 +53,7 @@ export default function UserList() {
   }, [users.length]);
 
   // This method will delete a user
-  async function deleteRecord(id) {
+  async function deleteUser(id) {
     await fetch(`http://localhost:5001/user/${id}`, { method: "DELETE" });
     const newfullName = users.filter((el) => el._id !== id);
     setfullName(newfullName);
@@ -64,7 +64,7 @@ export default function UserList() {
       return (
         <Record
           user={user}
-          deleteRecord={() => deleteRecord(user._id)}
+          deleteUser={() => deleteUser(user._id)}
           key={user._id}
         />
       );
