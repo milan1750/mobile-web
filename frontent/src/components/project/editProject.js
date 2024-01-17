@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
+import Navbar from "../navbar";
  export default function EditProject() {
  const [form, setForm] = useState({
    title: "",
@@ -52,9 +53,10 @@ import { useParams, useNavigate } from "react-router";
   // This following section will display the form that takes input from the user to update the data.
  return (
    <div className="container">
-     <h3>Update Project</h3>
+   <Navbar/>
+     <h3 className="mt-4">Update Project</h3>
      <form onSubmit={onSubmit}>
-       <div className="form-group mt-2">
+       <div className="form-group mt-4">
          <label htmlFor="title">Title: </label>
          <input
            type="text"

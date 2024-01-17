@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import Navbar from "./navbar";
 
 // This following section will display the form that takes the input from the user.
 export default function Register() {
@@ -7,8 +8,8 @@ export default function Register() {
 
   const [form, setForm] = useState({
     name: "",
-	email:"",
-	fullName: "",
+    email: "",
+    fullName: "",
     password: "",
   });
   function updateForm(value) {
@@ -32,28 +33,18 @@ export default function Register() {
       window.alert(error.message);
       return;
     });
-    setForm({ name: "", password: "", fullName:"", email:""});
+    setForm({ name: "", password: "", fullName: "", email: "" });
     navigate("/login");
   }
 
   return (
     <>
       <div className="container">
-        <form  onSubmit={onSubmit} className="login-form py-4">
-          <h3>Register to Knowledge Management System</h3>
-		  <div className="form-group mt-2">
-			<label htmlFor="name">Username</label>
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              value={form.name}
-              onChange={(e) => updateForm({ name: e.target.value })}
-            />
-          </div>
-		  <div className="form-group mt-2">
-
-			<label htmlFor="fullName">Full Name</label>
+        <Navbar />
+        <form onSubmit={onSubmit} className="py-4">
+          <h4 className="mt-4">Add new employee/user</h4>
+          <div className="form-group mt-4">
+            <label htmlFor="fullName">Name</label>
             <input
               type="text"
               className="form-control"
@@ -62,8 +53,18 @@ export default function Register() {
               onChange={(e) => updateForm({ fullName: e.target.value })}
             />
           </div>
-		  <div className="form-group mt-2">
-			<label htmlFor="email">Email</label>
+          <div className="form-group mt-2">
+            <label htmlFor="name">Username</label>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              value={form.name}
+              onChange={(e) => updateForm({ name: e.target.value })}
+            />
+          </div>
+          <div className="form-group mt-2">
+            <label htmlFor="email">Email</label>
             <input
               type="text"
               className="form-control"
@@ -72,9 +73,8 @@ export default function Register() {
               onChange={(e) => updateForm({ email: e.target.value })}
             />
           </div>
-
           <div className="form-group mt-2">
-			<label htmlFor="password">Password</label>
+            <label htmlFor="password">Temporary Password </label>
             <input
               type="password"
               className="form-control"
@@ -82,9 +82,20 @@ export default function Register() {
               value={form.password}
               onChange={(e) => updateForm({ password: e.target.value })}
             />
+            <button className="btn btn-sm btn-primary mt-2">
+              Auto Generate
+            </button>
           </div>
-          <div className="form-group mt-2">
-            <input className="btn btn-primary" type="submit" value="Register" />
+          <div className="form-group mt-4">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="type" />
+              <label class="form-check-label" for="type">
+                Check if the user is an employee
+              </label>
+            </div>
+          </div>
+          <div className="form-group mt-4">
+            <input className="btn btn-success" type="submit" value="Register New User" />
           </div>
         </form>
       </div>

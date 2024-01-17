@@ -16,10 +16,11 @@ import EditKnowledge from "./components/editKnowledge";
 import ProjectList from "./components/project/project";
 import CreateProject from "./components/project/createProject";
 import EditProject from "./components/project/editProject";
+import UserList from "./components/users/users";
+import EditUser from "./components/users/edit-user";
  const App = () => {
  return (
    <div>
-     <Navbar />
      <Routes>
        <Route exact path="/" element={<RecordList />} />
        <Route exact path="/login" element={<Login />} />
@@ -34,7 +35,9 @@ import EditProject from "./components/project/editProject";
 	   <Route exact path="/create-project" element={<CreateProject/>}/>
        <Route path="/edit-project/:id" element={<EditProject />} />
 
-
+	   <Route exact path="/users" element={<UserList/>}/>
+	   <Route exact path="/create-user" element={<CreateProject/>}/>
+       <Route path="/edit-user/:id" element={<EditUser />} />
      </Routes>
    </div>
  );
